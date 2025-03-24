@@ -12,6 +12,9 @@ My notes on changes I have made to my TCL Android TV (C645K UK model).
 ## Generic Android
 
 ### Enable developer mode
+Settings > Device Preferences > About \
+Scroll down to: Android TV OS buid \
+Hit "OK" button on remote x7.
 
 ### ADB
 
@@ -26,8 +29,8 @@ Download the adb client for your platform:
 
 On the TV:
 1. [Enable developer mode](#enable-developer-mode)
-2. Developer Mode > Enable USB debugging
-3. Find the TV's IP: Settings > Network..
+2. Settings > Device Preferences > Developer options > USB debugging = enabled
+3. Find the TV's IP under: Settings > Network & Internet
 
 From the computer command line: `adb connect <ip of TV>:5555` \
 The TV should ask if you wish to allow the USB debugging connection. Choose "Allow".
@@ -54,8 +57,11 @@ Enter one of:
 # Performance Tweaks
 
 ## Generic Android
-Disable HW Overlay
-Max background tasks = 1
+I've found these two quick settings to make a good improvement to the responsiveness..
+[Enable developer mode](#enable-developer-mode) \
+Settings > Device Preferences > Developer options:
+* Disable HW Overlays = enabled
+* Background process limit = 1
 
 ## Uninstall TCL bloat
 There are many guides on removing pre-installed TCL apps that come with the TV. \
@@ -89,17 +95,15 @@ It is also easy to roll back and forth as desired.
    ```
    adb install-multiple *.apk
    adb shell
-   pm enable com.google.android.apps.tv.launcherx          # enable GoogleTV
-   pm disable-user --user 0 com.google.android.tvlauncher  # disable AndroidTV
+   pm enable com.google.android.apps.tv.launcherx && pm disable-user --user 0 com.google.android.tvlauncher  # enable Google TV & disable AndroidTV
    ```
 
-Straight away, you should see the TV flip to Google TV launcher.
+Straight away, you should see the TV flip to Google TV interface.
 
 To roll back:
 ```
 adb shell
-pm enable com.google.android.tvlauncher
-pm disable-user --user 0 com.google.android.apps.tv.launcherx
+pm enable com.google.android.tvlauncher && pm disable-user --user 0 com.google.android.apps.tv.launcherx
 pm uninstall --user 0 com.google.android.apps.tv.launcherx     # optionally uninstall GoogleTV launcher to free space
 ```
 
@@ -145,9 +149,9 @@ But for your convenience, I've compiled a collection of some of these below. \
 
 RT51M Platform (Realtek RTD2851M):
 * R51MT01 - [IMG](https://disk.yandex.ru/d/MJLxrNv5vTv2XQ), [OTA](https://disk.yandex.ru/d/EiAtFdT2nQeIeg)
-* R51MT02 (Android TV) - [IMG](https://disk.yandex.ru/d/7ezQlN9aXR0Sbg), [OTA](https://disk.yandex.ru/d/gOuLfHvlo1v4lg)
+* R51MT02 (Android TV 11) - [IMG](https://disk.yandex.ru/d/7ezQlN9aXR0Sbg), [OTA](https://disk.yandex.ru/d/gOuLfHvlo1v4lg)
 * R51MT04 (Japan) - [OTA](https://disk.yandex.ru/d/bYeDMLIoc9lDvg)
-* R51MT05 (Google TV) - [IMG](https://disk.yandex.ru/d/KFHoJO_Grg_qCw), [OTA](https://disk.yandex.ru/d/V7gWFRxNuN9v-g)
+* R51MT05 (Google TV 11) - [IMG](https://disk.yandex.ru/d/KFHoJO_Grg_qCw), [OTA](https://disk.yandex.ru/d/V7gWFRxNuN9v-g)
 * R51MT06 - [IMG](https://disk.yandex.ru/d/FYcuX5Z9rZHFbQ), [OTA](https://disk.yandex.ru/d/FtlpV53LEC_MbQ)
 * R51MT07 (Japan) - [OTA](https://disk.yandex.ru/d/zNY2tEI8xEugwQ)
 
@@ -164,7 +168,7 @@ Then depending on your firmware format..
   Hold power button on the TV (not the remote) until the LED begins to blink.
   Release the power button, and firmware update should begin.
 
-If you want a clean setup after firmware upgarde, you can enter service menau, and run "ResetAll" and "Reset Shop".
+If you want a clean setup after firmware update, you can enter [service menu](#tv-service-menu), and run "ResetAll" and "Reset Shop".
   
 ## More info / help
 If you have any questions on which firmware version may be best for you, you can try these..
