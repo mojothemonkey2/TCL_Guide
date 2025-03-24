@@ -1,5 +1,10 @@
-# Intro
+[Intro](#intro) \
+[How-To](#how-to) \
+[Performance Tweaks](performance-tweaks) \
+[Switch to Google TV](switch-to-google-tv) \
+[Software Updates](#software-updates)
 
+# Intro
 My notes on changes I have made to my TCL Android TV (C645K UK model).
 
 # How-To
@@ -9,6 +14,7 @@ My notes on changes I have made to my TCL Android TV (C645K UK model).
 ### Enable developer mode
 
 ### ADB
+
 #### Connect with ADB
 Full guide - https://www.xda-developers.com/install-adb-windows-macos-linux/
 
@@ -34,8 +40,6 @@ You should be presented with a prompt like: `BeyondTV4:/ $` \
 From this, you will be able to run commands directly on your TV operating system.
 
 ## TCL Android
-
-
 
 ### TV Service menu
 TV Settings > Picture > Advanced > Brightness > Contrast \
@@ -70,12 +74,42 @@ pm uninstall --user 0 com.tcl.dashboard            # tcl smarthome
 
 If you later wish to re-install any of these appa, you can do so like: `pm install-existing com.tcl.guard`
 
+# Switch to Google TV
+ie change from Android TV to Google TV launcher.
+
+This can be done through a firmware update, as below. But the method here won't result in wiping the device, so you can keep all your current apps. \
+It is also easy to roll back and forth as desired.
+
+1. Download Google TV Home apk from your favourite apk site. \
+   eg https://www.apkmirror.com/apk/google-inc/google-tv-home-android-tv/google-tv-home-android-tv-1-0-574730900-release/google-tv-home-android-tv-1-0-574730900-2-android-apk-download/
+   (I tried the latest version, but it would not load. So reading forums, went with this version).
+2. Unzip the apkm package to a temp directory, eg linux: `unzip -d gtv <.apkm file>` \
+   And change to this directory, eg: `cd gtv`
+4. [Connect with ADB](#connect-with-adb), install the package and enable it on the TV
+   ```
+   adb install-multiple *.apk
+   adb shell
+   pm enable com.google.android.apps.tv.launcherx          # enable GoogleTV
+   pm disable-user --user 0 com.google.android.tvlauncher  # disable AndroidTV
+   ```
+
+Straight away, you should see the TV flip to Google TV launcher.
+
+To roll back:
+```
+adb shell
+pm enable com.google.android.tvlauncher
+pm disable-user --user 0 com.google.android.apps.tv.launcherx
+pm uninstall --user 0 com.google.android.apps.tv.launcherx     # optionally uninstall GoogleTV launcher to free space
+```
+
+There also exist launcher manager apps to flip between launcher via the UI. But I have not tried. \
 
 # Software Updates
 TCL do not seem to be running any updates over the internet, at least in my region (UK). \
 Instead, they offer a support service, where you can download firmware updates, and apply these manually via USB stick.
 
-Firmware files will always be .zip, but there are two distinct types:
+Firmware files will always be .zip, but there are two distinct formats:
 * OTA - update in place, keeping existing apps.
 * IMG - will wipe the device!
 
@@ -88,6 +122,7 @@ The 2nd part of the software id tells you the firmware type, specifically platfo
 
 You must stick with a firmware that uses the same platform, as this must match the hardware chipset of the TV. \
 Different TXX variants can be for different regions, or models.
+(or potentially for different Android versions, though the variants I've seen have all been Android 11).
 
 If you stick with the same firmware type, you can use an OTA update. \
 If you want to switch to a different variant, eg R51MT02 > R51MT05 (Android TV > Google TV), you must use an IMG update. \
@@ -103,6 +138,10 @@ Where the letter indicates:
 * R - Test version.
 
 ## Download Firmware
+Now you have an idea of what firmware type you will be after, you can hunt for newer versions on the TCL cloud drives. \
+You can search for these on the XDA forums, or the TCL Telegram channel / Bot. \
+But for your convenience, I've compiled a collection of some of these below. \
+(I've used the yandex drives, since these give the folder contents, instead of just individual files).
 
 RT51M Platform (Realtek RTD2851M):
 * R51MT01 - [IMG](https://disk.yandex.ru/d/MJLxrNv5vTv2XQ), [OTA](https://disk.yandex.ru/d/EiAtFdT2nQeIeg)
@@ -112,11 +151,10 @@ RT51M Platform (Realtek RTD2851M):
 * R51MT06 - [IMG](https://disk.yandex.ru/d/FYcuX5Z9rZHFbQ), [OTA](https://disk.yandex.ru/d/FtlpV53LEC_MbQ)
 * R51MT07 (Japan) - [OTA](https://disk.yandex.ru/d/zNY2tEI8xEugwQ)
 
-
 ## Update Firmware
 Prep a USB stick (with at least 4GB size) by formatting FAT32 (or failing that, can try NTFS). \
 Make sure the USB is empty, the only file should be the firmware file/s. \
-Then for..
+Then depending on your firmware format..
 * OTA - copy the .zip file to the USB.
   Insert USB into TV (USB 2.0 port recommended).
   Settings > System Update > Local update.
@@ -128,10 +166,16 @@ Then for..
 
 If you want a clean setup after firmware upgarde, you can enter service menau, and run "ResetAll" and "Reset Shop".
   
-## More info
+## More info / help
+If you have any questions on which firmware version may be best for you, you can try these..
 * More info and discussion on firmwares - https://xdaforums.com/t/f-a-q-and-useful-guides-for-tcl-tvs-flashing-firmwares-etc.4481901/
 * You can also get help and ask questions through TCL Android TV Updates channel on Telegrem - https://t.me/tclupdates
+* Discussions on TCL Android TVs by model year:
+  * 2021 - https://xdaforums.com/t/tcl-2021-android-google-tvs-p725-c725-c728-c825-x925.4255729/
+  * 2022 - https://xdaforums.com/t/tcl-2022-google-tvs-p635-p735-c635-c735-c835-c935.4432635/
+  * 2023 - https://xdaforums.com/t/tcl-2023-google-tvs-p745-p755-c645-c745-c755-c805-c845-c855-c955-x955.4576005/
+  * 2024 - https://xdaforums.com/t/tcl-2024-google-tvs-p655-p755-c655-c655-pro-c765-t8b-c855-115x955.4666345/
 
 ## Troubleshooting
 * If the TV is stuck on Recovery Mode after reboot, unplug and wait for 10 minutes before plugging it again.
-* If IMG firmware results in black screen, you can try upgrade with a newer OTA version, using the power off>on method.
+* If IMG firmware results in black screen, you can try upgrade from this with a newer OTA version, using the power off>on method.
