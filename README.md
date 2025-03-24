@@ -1,6 +1,6 @@
 # Intro
 
-My notes on changes I have made to my TCL TV (C645K UK model).
+My notes on changes I have made to my TCL Android TV (C645K UK model).
 
 # How-To
 
@@ -76,18 +76,18 @@ TCL do not seem to be running any updates over the internet, at least in my regi
 Instead, they offer a support service, where you can download firmware updates, and apply these manually via USB stick.
 
 Firmware files will always be .zip, but there are two distinct types:
-* OTA - update in place, and keep existing apps.
+* OTA - update in place, keeping existing apps.
 * IMG - will wipe the device!
 
 First determine your current firmware: \
 Setting > Device preference > About > Product Information: Software: V8-R51MT02-LF1V392.021305
 
-The 2nd part of the software id gives you the firmware type, ie platform + variant, eg:
+The 2nd part of the software id tells you the firmware type, specifically platform + variant (TXX), eg:
 * R51MT02 = Realtek RTD2851M + Android TV.
 * R51MT05 = Realtek RTD2851M + Google TV.
 
 You must stick with a firmware that uses the same platform, as this must match the hardware chipset of the TV. \
-Different TXX variants can also be for different regions, etc. \
+Different TXX variants can be for different regions, or models.
 
 If you stick with the same firmware type, you can use an OTA update. \
 If you want to switch to a different variant, eg R51MT02 > R51MT05 (Android TV > Google TV), you must use an IMG update. \
@@ -102,23 +102,36 @@ Where the letter indicates:
 * M - Pre-production version.
 * R - Test version.
 
-
-Firmware files will always be .zip, but there are two distinct types:
-* OTA - update in place, and keep existing apps.
-  Applied through: Settings > System Update > Local update.
-* IMG - will wipe the device!
-  Applied through: [Service menu](#tv-service-menu) > 
-
-
-
 ## Download Firmware
+
+RT51M Platform (Realtek RTD2851M):
+* R51MT01 - [IMG](https://disk.yandex.ru/d/MJLxrNv5vTv2XQ), [OTA](https://disk.yandex.ru/d/EiAtFdT2nQeIeg)
+* R51MT02 (Android TV) - [IMG](https://disk.yandex.ru/d/7ezQlN9aXR0Sbg), [OTA](https://disk.yandex.ru/d/gOuLfHvlo1v4lg)
+* R51MT04 (Japan) - [OTA](https://disk.yandex.ru/d/bYeDMLIoc9lDvg)
+* R51MT05 (Google TV) - [IMG](https://disk.yandex.ru/d/KFHoJO_Grg_qCw), [OTA](https://disk.yandex.ru/d/V7gWFRxNuN9v-g)
+* R51MT06 - [IMG](https://disk.yandex.ru/d/FYcuX5Z9rZHFbQ), [OTA](https://disk.yandex.ru/d/FtlpV53LEC_MbQ)
+* R51MT07 (Japan) - [OTA](https://disk.yandex.ru/d/zNY2tEI8xEugwQ)
 
 
 ## Update Firmware
-Prep a USB stick (with at least 4GB size) by formatting FAT32 (or failing that, can try NTFS).
+Prep a USB stick (with at least 4GB size) by formatting FAT32 (or failing that, can try NTFS). \
+Make sure the USB is empty, the only file should be the firmware file/s. \
+Then for..
+* OTA - copy the .zip file to the USB.
+  Insert USB into TV (USB 2.0 port recommended).
+  Settings > System Update > Local update.
+* IMG - extract the .zip file, and copy the contents to the USB (eg Update.img file).
+  Insert USB into TV (USB 2.0 port recommended).
+  Power off the TV.
+  Hold power button on the TV (not the remote) until the LED begins to blink.
+  Release the power button, and firmware update should begin.
 
+If you want a clean setup after firmware upgarde, you can enter service menau, and run "ResetAll" and "Reset Shop".
+  
+## More info
+* More info and discussion on firmwares - https://xdaforums.com/t/f-a-q-and-useful-guides-for-tcl-tvs-flashing-firmwares-etc.4481901/
+* You can also get help and ask questions through TCL Android TV Updates channel on Telegrem - https://t.me/tclupdates
 
 ## Troubleshooting
-
-
-
+* If the TV is stuck on Recovery Mode after reboot, unplug and wait for 10 minutes before plugging it again.
+* If IMG firmware results in black screen, you can try upgrade with a newer OTA version, using the power off>on method.
