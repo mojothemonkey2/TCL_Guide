@@ -125,8 +125,7 @@ The 2nd part of the software id tells you the firmware type, specifically platfo
 * R51MT05 = Realtek RTD2851M + Google TV.
 
 You must stick with a firmware that uses the same platform, as this must match the hardware chipset of the TV. \
-Different TXX variants can be for different regions, or models.
-(or potentially for different Android versions, though the variants I've seen have all been Android 11).
+Different TXX variants can be for different regions, or tv models.
 
 If you stick with the same firmware type, you can use an OTA update. \
 If you want to switch to a different variant, eg R51MT02 > R51MT05 (Android TV > Google TV), you must use an IMG update. \
@@ -143,7 +142,7 @@ Where the letter indicates:
 
 ## Download Firmware
 Now you have an idea of what firmware type you will be after, you can hunt for newer versions on the TCL cloud drives. \
-You can search for these on the XDA forums, or the TCL Telegram channel / Bot. \
+You could also search for these on the XDA forums, or the TCL Telegram channel / Bot. 
 But for your convenience, I've compiled a collection of some of these below. \
 (I've used the yandex drives, since these give the folder contents, instead of just individual files).
 
