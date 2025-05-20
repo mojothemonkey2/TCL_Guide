@@ -63,6 +63,8 @@ Settings > Device Preferences > Developer options:
 * Disable HW Overlays = enabled
 * Background process limit = 1
 
+Note: These settings do not persist a reboot, so you will need to re-appy each time the tv is restarted. 
+
 ## Uninstall TCL bloat
 There are many guides on removing pre-installed TCL apps that come with the TV. \
 A lot of these are quite agressive, in trying to remove everything. \
@@ -106,8 +108,10 @@ adb shell
 pm enable com.google.android.tvlauncher && pm disable-user --user 0 com.google.android.apps.tv.launcherx
 pm uninstall --user 0 com.google.android.apps.tv.launcherx     # optionally uninstall GoogleTV launcher to free space
 ```
-
-There also exist launcher manager apps to flip between launcher via the UI. But I have not tried. \
+Note:
+* You can alternatively install a 3rd-party launcher, such as Projectivy (available from the app store). 
+  And then similarly disable ATV launcher to leave Projectivy as the default.
+* There also exist launcher manager apps to flip between launcher via the UI. But I have not tried. \
 
 # Software Updates
 TCL do not seem to be running any updates over the internet, at least in my region (UK). \
