@@ -186,3 +186,33 @@ If you have any questions on which firmware version may be best for you, you can
 ## Troubleshooting
 * If the TV is stuck on Recovery Mode after reboot, unplug and wait for 10 minutes before plugging it again.
 * If IMG firmware results in black screen, you can try upgrade from this with a newer OTA version, using the power off>on method.
+
+# Timeshift / PVR
+On my UK model, the TV app includes the Actions for Timeshift and PVR, but the menus lack the option to call them. \
+But we can still use these features if we can configure our own button mapping or menu for them. \
+
+## Requirements
+* A USB stick. Suggest reasonable size, eg 8GB+.
+* A button mapping app, that is able to map to android "Actions".
+  For this I have chosen [tvQuickActions pro](https://play.google.com/store/apps/details?id=dev.vodik7.tvquickactions&hl=en_GB), 
+  as it is able to run Actions, and includes nice menu overlay features.
+
+## My setup
+
+### Operation
+* Insert the USB.
+* Press the "TV" button, and it will open live TV (unless a HDMI source is already open, then you will need to switch the usual way - using source input button).
+* While TV app is open, press the "TV" button again, and it will overlay a menu:
+  ![menu buttons](menu.png)
+* For first run of Timeshift, it will format the USB as necessary.
+* "Recordings" will take you to the Media Player app, listing your PVR recordings:
+  ![pvr](pvr.png)
+
+Issues & Limitations:
+* PVR can only record what you are watching.
+* At least 50% of the time, attempting to play recordings will error with "Sorry, unable to play this media resource".
+  I think there is something missing from the UK version that causes a race condition
+
+### Setup
+
+
