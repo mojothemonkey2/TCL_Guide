@@ -2,7 +2,8 @@
 [How-To](#how-to) \
 [Performance Tweaks](performance-tweaks) \
 [Switch to Google TV](switch-to-google-tv) \
-[Software Updates](#software-updates)
+[Software Updates](#software-updates) \
+[Timeshift / PVR](#timeshift-pvr)
 
 # Intro
 My notes on changes I have made to my TCL Android TV (C645K UK model).
