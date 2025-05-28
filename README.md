@@ -223,6 +223,8 @@ Issues & Limitations:
   * Accessibility - for button mapping.
   * Usage access - for constraints.
   * Overlay - for the menu overlay.
+
+  You will also need to install a File Manager app if you have not already done so, for opening the backup file in the next steps.
 * Download [data.json](data.json) config backup from this repo, and zip it up.
   Then [Connect with ADB](#connect-with-adb) and push it to the TV Documents folder, eg:
   ```
