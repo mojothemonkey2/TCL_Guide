@@ -189,8 +189,8 @@ If you have any questions on which firmware version may be best for you, you can
 * If IMG firmware results in black screen, you can try upgrade from this with a newer OTA version, using the power off>on method.
 
 # Timeshift / PVR
-On my UK model, the TV app includes the Actions for Timeshift and PVR, but the menus lack the option to call them. \
-But we can still use these features if we can configure our own button mapping or menu for them. \
+On my UK model, the TV app includes the Actions for Timeshift and PVR, but the TV menus lack the option to call them. \
+However we can still use these features if we can configure our own button mapping or menu for them.
 
 ## Requirements
 * A USB stick. Suggest reasonable size, eg 8GB+.
