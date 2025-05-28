@@ -211,8 +211,25 @@ But we can still use these features if we can configure our own button mapping o
 Issues & Limitations:
 * PVR can only record what you are watching.
 * At least 50% of the time, attempting to play recordings will error with "Sorry, unable to play this media resource".
-  I think there is something missing from the UK version that causes a race condition
+  My guess is there's something missing from the UK install that causes a race condition here.
+  Just keep trying, it should play eventually.
+* No option to delete recordings. I think this feature is just missing from the TCL player app.
+* Volume +/- moves in increments of 2 (should be 1). A common consequence of using a button mapping app.
+* EPG shortcut is for the UK Freeview version. You can amend this if you have a different region EPG.
+  (tvQA > Buttons & actions > ... )
 
 ### Setup
-
+* Install and open tvQuickActions pro.
+* It should propmpt you for various permissions. For this setup you will need:
+  * Accessibility - for button mapping.
+  * 2
+  * 3
+* Download [data.json](data.json) config backup from this repo, and zip it up.
+  Then [Connect with ADB](#connect-with-adb) and push it to the TV Documents folder, eg:
+  ```
+  zip data.json tvQA.zip
+  adb push tvQA.zip /sdcard/Documents
+  ```
+* Restore the config: \
+  tvQA > Settings > Restore ...
 
