@@ -215,15 +215,13 @@ Issues & Limitations:
   Just keep trying, it should play eventually.
 * No option to delete recordings. I think this feature is just missing from the TCL player app.
 * Volume +/- moves in increments of 2 (should be 1). A common consequence of using a button mapping app.
-* EPG shortcut is for the UK Freeview version. You can amend this if you have a different region EPG.
-  (tvQA > Buttons & actions > ... )
 
 ### Setup
 * Install and open tvQuickActions pro.
 * It should propmpt you for various permissions. For this setup you will need:
   * Accessibility - for button mapping.
-  * 2
-  * 3
+  * Usage access - for constraints.
+  * Overlay - for the menu overlay.
 * Download [data.json](data.json) config backup from this repo, and zip it up.
   Then [Connect with ADB](#connect-with-adb) and push it to the TV Documents folder, eg:
   ```
@@ -231,5 +229,26 @@ Issues & Limitations:
   adb push tvQA.zip /sdcard/Documents
   ```
 * Restore the config: \
-  tvQA > Settings > Restore ...
+  tvQA > Settings > Backup > Restore backup > Merge. Pick FileManager > Main storage > Documents. Select tvQA.zip. \
+  If all has gone well, it should popup "Success".
+
+### Troubleshooting
+* tvQuickActions docs - https://tvdevinfo.com/tvquickactions/
+* Live TV button not working - your live TV input may have a different HW id.
+  You should be able to find this from the logs, by searching for "sourceName", eg:
+  ```
+  $ logcat | grep sourceName
+  05-25 18:32:10.213  1464  1464 D com.tcl.sourcemenu.sourcedata.TIFInputSource: sourceName = TV,SourceType = EN_TCL_DTV,sourceId = com.tcl.tvinput/.TDTVInputService/HW1413742848
+  ```
+  Then take the sourceId, replace '/' with '%2F' and build a content URI like: `content://android.media.tv/passthrough/com.tcl.tvinput%2F.TDTVInputService%2FHW1413742848`.
+  This then goes into qaTV > Intents > TV, in the "data" box.
+
+  OR... Just forget it, and do a simple map to the TV app. The only drawback is the TV button will switch to the last input (eg HDMI) instead of live TV.
+* tvQuickActions not working after reboot - accessibility permission gets disabled. \
+  For me, tvQA needed start permission in the Safety Guard app, as per https://tvdevinfo.com/tvquickactions/troubleshooting/#the-app-does-not-work-in-the-background-on-tcl
+  Which I was able to enable with:
+  ```
+  appops set dev.vodik7.tvquickactions APP_AUTO_START allow
+  ```
+  
 
