@@ -1,0 +1,23 @@
+{
+  "intents": [
+    {
+      "a": "intents",
+      "b": "intents",
+      "c": "[{\"id\":1,\"icon\":\"gmd_folder\",\"uri\":\"#Intent;action\\u003dcom.tcl.ui_mediaCenter.action.PVRBrowserActivity;category\\u003dandroid.intent.category.DEFAULT;package\\u003dcom.tcl.ui_mediaCenter;component\\u003dcom.tcl.ui_mediaCenter/.main.FileListActivity;end\",\"target\":\"ACTIVITY\",\"title\":\"Recordings\",\"uid\":\"595c511c-5efd-4029-8189-cbdb00d8aea0\",\"non_exported\":false,\"sendToRemote\":false,\"remoteAddress\":\"\"},{\"id\":2,\"icon\":\"gmd_live_tv\",\"uri\":\"content://android.media.tv/passthrough/com.tcl.tvinput%2F.TDTVInputService%2FHW1413742848#Intent;package\\u003dcom.tcl.tv;component\\u003dcom.tcl.tv/.TVActivity;end\",\"target\":\"ACTIVITY\",\"title\":\"TV\",\"uid\":\"786c09b4-1426-4bde-a0a1-8353a4360bb5\",\"non_exported\":false,\"sendToRemote\":false,\"remoteAddress\":\"\"}]"
+    }
+  ],
+  "menu": [
+    {
+      "a": "menu",
+      "b": "menu",
+      "c": "[{\"id\":1,\"isEnabled\":true,\"title\":\"TV Functions\",\"icon\":\"gmd_dvr\",\"type\":7,\"actions\":{\"1\":{\"a\":\"activity\",\"b\":\"com.tcl.tv\",\"c\":\"com.tcl.dtv.manage.freeviewplay.EpgFVPActivity\",\"d\":\"TV (com.tcl.dtv.manage.freeviewplay.EpgFVPActivity)\",\"e\":310876,\"f\":\"EPG\",\"g\":\"gmd_dvr\"},\"2\":{\"a\":\"activity\",\"b\":\"com.tcl.tv\",\"c\":\"com.tcl.tv.timeshift.TimeShiftMainActivity\",\"d\":\"TV (com.tcl.tv.timeshift.TimeShiftMainActivity)\",\"e\":310877,\"f\":\"Timeshift\",\"g\":\"gmd_access_time\"},\"3\":{\"a\":\"activity\",\"b\":\"com.tcl.tv\",\"c\":\"com.tcl.tv.pvr.PvrActivity\",\"d\":\"TV (com.tcl.tv.pvr.PvrActivity)\",\"e\":310878,\"f\":\"Record TV\",\"g\":\"gmd_videocam\"},\"4\":{\"a\":\"intent\",\"b\":\"595c511c-5efd-4029-8189-cbdb00d8aea0\",\"e\":310879,\"f\":\"\",\"g\":\"\"}},\"showTitle\":false,\"showClock\":false,\"useAsChannel\":false,\"channelId\":17409,\"closeAfterAction\":true,\"uid\":\"dadfa8b3-3bc4-448c-b854-e57aa814b6d6\",\"localFocus\":false}]"
+    }
+  ],
+  "actions": [
+    {
+      "a": "actions",
+      "b": "actions",
+      "c": "[{\"id\":1,\"keycode\":4,\"type\":0,\"action\":{\"a\":\"accessibility\",\"b\":\"back\",\"e\":0,\"f\":\"\",\"g\":\"\"},\"doublePressAction\":{\"a\":\"accessibility\",\"b\":\"back\",\"e\":0,\"f\":\"\",\"g\":\"\"},\"isEnabled\":false,\"constraintList\":[],\"constraintMode\":1,\"uniqueItem\":true,\"uid\":\"617fd11f-f0b7-49a8-b25a-273f0f2539f4\"},{\"id\":2,\"keycode\":4001,\"type\":0,\"action\":{\"a\":\"menu\",\"b\":\"dadfa8b3-3bc4-448c-b854-e57aa814b6d6\",\"e\":0,\"f\":\"\",\"g\":\"\"},\"isEnabled\":true,\"label\":\"TV Actions\",\"constraintList\":[{\"type\":\"constraint_app_foreground\",\"extras\":[{\"id\":\"extra_package_name\",\"data\":\"com.tcl.tv\"}]}],\"constraintMode\":1,\"uniqueItem\":false,\"uid\":\"bb70961a-2efd-4dd5-a178-026f0ed27e05\"},{\"id\":3,\"keycode\":4001,\"type\":0,\"action\":{\"a\":\"intent\",\"b\":\"786c09b4-1426-4bde-a0a1-8353a4360bb5\",\"e\":0,\"f\":\"\",\"g\":\"\"},\"isEnabled\":true,\"constraintList\":[],\"constraintMode\":1,\"uniqueItem\":false,\"uid\":\"1ced2943-c8ab-4f0c-a959-48fb1603653b\"}]"
+    }
+  ]
+}
