@@ -214,7 +214,7 @@ Issues & Limitations:
 * At least 50% of the time, attempting to play recordings will error with "Sorry, unable to play this media resource".
   My guess is there's something missing from the UK install that causes a race condition here.
   Just keep trying, it should play eventually.
-* No option to delete recordings. I think this feature is just missing from the TCL player app.
+* No option to delete recordings in the PVR player (but you can use a separate File Manager). I think this feature is just missing from the TCL player app.
 * Volume +/- moves in increments of 2 (should be 1). A common consequence of using a button mapping app.
 
 ### Setup
