@@ -1,5 +1,6 @@
 [Intro](#intro) \
 [How-To](#how-to) \
+[Security](security) \
 [Performance Tweaks](performance-tweaks) \
 [Switch to Google TV](switch-to-google-tv) \
 [Software Updates](#software-updates) \
@@ -54,6 +55,34 @@ Enter one of:
 * 6405 - subsection Hotel Menu
 * 6425 - TV Running Time and quick access to reset (Reset All and Reset Shop)
 
+# Security
+
+## Separate google account
+
+If your tv is logged in with your personal google account, and the tv becomes compromised, 
+then potentially your google account could be compromised, with access to your gmail, drive etc 
+(eg at [arstechnica.com](https://arstechnica.com/gadgets/2024/04/google-says-its-fixing-a-nasty-android-tv-account-security-loophole/)).
+
+The simplest and safest solution is to create a separate google account for your tv.
+This can be easily done from any browser (incognito mode helps if you are already logged in with google). \
+If you set the age of the account >13 it should avoid age restrictions on YouTube.
+And if you set the age of the account <18, you can also enforce purchase approvals, if you are adding the account to google Family, as below.
+
+But I have purchased apps/content on my main account that I use on my tv? \
+This can be overcome by adding the new account to google Family, and enabling Family Library:
+
+1. Create a google family (if you don't have one already) - https://myaccount.google.com/ > People and sharing.
+2. Invite the newly created user. Then accept the invite from their gmail.
+3. Enable Family Lirary sharing - https://play.google.com/store/family/create \
+   It will require you to add a credit card. \
+   You don't have to elect to share everything, you can add items individually later on.
+4. Set purchase approvals - https://play.google.com/store/account/family
+   * Family Group > for each user: \
+     Set purchase approvals = All purchases using the family payment method (if greyed out, check the age of your new account, needs to be <18).
+   * Family Library settings - you can select whether to add purchases automatically etc.
+5. Share apps/content. \
+   Locate apps from the app store, or through your purchase histrory https://play.google.com/store/account/orderhistory \
+   View the app details > toggle "Familly Library".
 
 # Performance Tweaks
 
