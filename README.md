@@ -1,8 +1,8 @@
 [Intro](#intro) \
 [How-To](#how-to) \
-[Security](security) \
-[Performance Tweaks](performance-tweaks) \
-[Switch to Google TV](switch-to-google-tv) \
+[Security](#security) \
+[Performance Tweaks](#performance-tweaks) \
+[Switch to Google TV](#switch-to-google-tv) \
 [Software Updates](#software-updates) \
 [Timeshift / PVR](#timeshift--pvr)
 
