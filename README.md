@@ -3,7 +3,7 @@
 [Security](#security) \
 [Performance Tweaks](#performance-tweaks) \
 [Switch to Google TV](#switch-to-google-tv) \
-[Software Updates](#software-updates) \
+[Firmware Updates](#firmware-updates) \
 [Timeshift / PVR](#timeshift--pvr)
 
 # Intro
@@ -84,6 +84,20 @@ This can be overcome by adding the new account to google Family, and enabling Fa
    Locate apps from the app store, or through your purchase histrory https://play.google.com/store/account/orderhistory \
    View the app details > toggle "Familly Library".
 
+## Disable install unknown apps
+
+This permission lets an app install other apps, so could be open to exploit. \
+It seems there are a few apps shipped with the TV that have this allowed by default. 
+I'm not sure what the permission would be required for in each case, so I have disabled and will see if anything breaks.
+(I think developer mode is required to change this permission).
+
+Settings > Apps > Security & Restrictions > Unknown sources > Install unknown apps.
+Disable for:
+* CaptivePortalLogin - used for public wifi login portals.
+* Media Player.
+* Safety Guard - tcl anti-virus app. I have uninstalled this anyway.
+
+
 # Performance Tweaks
 
 ## Generic Android
@@ -143,9 +157,9 @@ Note:
   And then similarly disable ATV launcher to leave Projectivy as the default.
 * There also exist launcher manager apps to flip between launcher via the UI. But I have not tried. \
 
-# Software Updates
+# Firmware Updates
 TCL do not seem to be running any updates over the internet, at least in my region (UK). \
-Instead, they offer a support service, where you can download firmware updates, and apply these manually via USB stick.
+But there is an XDA community run service, where you can download firmware updates, and apply these manually via USB stick.
 
 Firmware files will always be .zip, but there are two distinct formats:
 * OTA - update in place, keeping existing apps.
@@ -213,9 +227,39 @@ If you have any questions on which firmware version may be best for you, you can
   * 2023 - https://xdaforums.com/t/tcl-2023-google-tvs-p745-p755-c645-c745-c755-c805-c845-c855-c955-x955.4576005/
   * 2024 - https://xdaforums.com/t/tcl-2024-google-tvs-p655-p755-c655-c655-pro-c765-t8b-c855-115x955.4666345/
 
+### Fixes / Issues
+I've not come across any changelog for the firwares, so no idea what is in them. 
+But here are a few fixes that I've spotted in newer firmwares (RT51M Platform):
+* Performance - seems a bit better with the newer GTV firmwares.
+* Wired connection fails when turning on tv - looks fixed in newer firmwares, eg v631.
+* PVR recordings playback - would fail around 50% of the time. Working in newer firmwares, eg v631.
+
+Issues:
+* v639 - several users reporting crashes on this firmware.
+
+### Program Guide
+A note on GTV firmware and Freeview..
+
+When you first boot up GTV (EU) firmware, it will ask you to pick a region. \
+(or you can change it at any time after: Settings > Channels & Inputs > Channel > Channel Scan > Country/Region).
+
+Region=UK => Freeview mode. \
+You'll get the Freeview EPG, and if you are based in the UK, can use Channel-100 data channel to access FreeviewPlay, where you will find iPlayer etc.
+
+Region=non-UK (ie anything else) => Normal mode. \
+You'll get the standard EPG. \
+Data channels are disabled on many regions, but eg Germany or Netherlands allow data channels, then you can still view Channel-100 for FreeviewPlay.
+
+Either way, there is NO standalone iplayer app. And the FreeviewPlay button is broken. \
+But, it is possible to install a hacked version of iplayer that will work on TCL (eg from https://letscrackon.org/downloads/).
+
+Personally, I think the standard EPG looks better, so I use Region=Germany. \
+But one downside is that Channel4 app won't play programs, complaining of geo-restriction (rest of my apps are fine: iplayer, itvx, my5, prime).
+
 ## Troubleshooting
 * If the TV is stuck on Recovery Mode after reboot, unplug and wait for 10 minutes before plugging it again.
 * If IMG firmware results in black screen, you can try upgrade from this with a newer OTA version, using the power off>on method.
+
 
 # Timeshift / PVR
 On my UK model, the TV app includes the Actions for Timeshift and PVR, but the TV menus lack the option to call them. \
@@ -240,11 +284,8 @@ However we can still use these features if we can configure our own button mappi
 
 Issues & Limitations:
 * PVR can only record what you are watching.
-* At least 50% of the time, attempting to play recordings will error with "Sorry, unable to play this media resource".
-  My guess is there's something missing from the UK install that causes a race condition here.
-  Just keep trying, it should play eventually.
 * No option to delete recordings in the PVR player (but you can use a separate File Manager). I think this feature is just missing from the TCL player app.
-* Volume +/- moves in increments of 2 (should be 1). A common consequence of using a button mapping app.
+* Volume +/- moves in increments of 2 (should be 1). I suspect this is a bug with TCL when enabling Accessibility service.
 
 ### Setup
 * Install and open tvQuickActions pro.
