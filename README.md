@@ -155,7 +155,7 @@ pm uninstall --user 0 com.google.android.apps.tv.launcherx     # optionally unin
 Note:
 * You can alternatively install a 3rd-party launcher, such as Projectivy (available from the app store). 
   And then similarly disable ATV launcher to leave Projectivy as the default.
-* There also exist launcher manager apps to flip between launcher via the UI. But I have not tried. \
+* There also exist open-source launcher manager apps to flip between launchers via the UI (using `cmd package set-home-activity` and `pm disable-user` over ADB without needing an Accessibility Service), such as [TV Box Tools (Launcher Manager TV ADB Tools)](https://play.google.com/store/apps/details?id=com.tv.launcher.manager.adb.tvboxtools&gl=us) ([website](https://tvboxtools.com) | [GitHub](https://github.com/smartago/tvboxtools)). \
 
 # Firmware Updates
 TCL do not seem to be running any updates over the internet, at least in my region (UK). \
